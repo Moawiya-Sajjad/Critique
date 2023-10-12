@@ -1,0 +1,74 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Comparing 1970 and 2022 populations for the top 10 ranked countries",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "anchor": "middle",
+      "dy": -10
+    }
+    ,
+    "data": {
+      "url": "data/worldpopulation.csv"
+    },
+    "transform": [
+      {
+        "filter": "datum.Rank <= 10"
+      },
+      {
+        "fold": ["1970 Population", "2022 Population"],
+        "as": ["Year", "Population"]
+      }
+    ],
+    "params" :[ { "name" : "continent_highlight" , 
+                  "select" : { "type" : "point" , "fields" : [ "Country/Territory" ]}, 
+                  "bind" : "legend" 
+                } 
+              ],
+    "width": 300,
+    "height": 400,
+    "mark": {"type": "line", "point": true},
+    "encoding": {
+      "y": {
+        "field": "Population",
+        "type": "quantitative",
+        "axis": {
+          "title": "Population",
+          "grid": false,
+          "labelFontSize": 14,
+          "titleFontSize": 16,
+          "labelFont": "Times New Roman"
+        },
+        "scale": {
+          "domain": [0, 1500000000]
+        }
+      },
+      "color": {
+        "field": "Country/Territory",
+        "type": "nominal",
+        "legend": {
+          "title": "Country",
+          "orient": "right",
+          "titleFontSize": 16,
+          "labelFontSize": 14
+        }
+      },
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": null,
+        "axis": {
+          "labels": true,
+          "labelAngle": 0,
+          "labelFontSize": 14,
+          "labelFont": "Times New Roman"
+        }
+      },
+      "opacity" : { "condition" : { "param" : "continent_highlight" , "value" : 0.6 }, "value" : 0.2 },
+      "tooltip": [
+        {"field": "Country/Territory", "type": "nominal"},
+        {"field": "Year", "type": "ordinal"},
+        {"field": "Population", "type": "quantitative"}
+      ]
+    }
+  }

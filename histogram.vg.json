@@ -1,0 +1,91 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "data/worldpopulation.csv"
+    },
+    "title": {
+      "text": "Histogram of Population Growth Rate",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "anchor": "middle",
+      "dy": -10
+    },
+    "mark": {
+      "type": "bar",
+      "color": "#4c78a8"
+    },
+    "width": 600,
+    "height": 400,
+    "background": "white",
+    "transform": [
+      {
+        "filter": "datum['Growth Rate'] > 0.93 && datum['Growth Rate'] < 1.05"
+      },
+      {
+        "bin": {
+          "step": 0.005
+        },
+        "field": "Growth Rate",
+        "as": "growthRateBin"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "growthRateBin",
+        "bin": "binned",
+        "title": "Growth Rate",
+        "axis": {
+          "tickMinStep": 0.005,
+          "grid": false,
+          "labelFontSize": 14,
+          "titleFontSize": 16,
+          "labelFont": "Times New Roman"
+        },
+        "scale": {
+            "domain": [0.975, 1.05]
+        }
+      },
+      "x2": {
+        "field": "growthRateBin_end"
+      },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Number of Countries",
+        "axis": {
+          "grid": false,
+          "labelFontSize": 14,
+          "titleFontSize": 16,
+          "labelFont": "Times New Roman"
+        }
+      },
+      "tooltip": [
+        {
+          "field": "growthRateBin", 
+          "title": "Growth Rate Start", 
+          "type": "quantitative"
+        },
+        {
+          "field": "growthRateBin_end", 
+          "title": "Growth Rate End", 
+          "type": "quantitative"
+        },
+        {
+          "aggregate": "count", 
+          "type": "quantitative", 
+          "title": "Number of Countries"
+        }
+      ]
+    },
+    "config": {
+      "bar": {
+        "binSpacing": 1,
+        "continuousBandSize": 5
+      },
+      "axis": {
+        "domain": true,
+        "tickSize": 5,
+        "domainWidth": 1
+      }
+    }
+}

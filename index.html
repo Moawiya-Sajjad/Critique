@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vega-Lite Bar Chart</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.12.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.1"></script>
+    <script src = "map.js"></script>
+    <link rel="stylesheet" href="map.css">
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+      <div class="container">
+        <!-- <div class="page"> -->
+        
+          <h1 class="heading">Our Growing World: Population Milestones and Projections</h1>
+        
+
+          <p class="map-heading"><strong> Population distribution in 2022 </strong></p>
+          <div id="map"></div>
+          <p class="map-paragraph">
+              The <strong>map</strong> provides a visual representation of global population distribution in 2022. <strong>Darker 
+              shades of red</strong> indicate regions with a higher population, while <strong>lighter shades</strong> suggest a lower 
+              population. <strong>Asia</strong>, particularly <strong>China</strong> and <strong>India</strong>, appears to have the 
+              highest population, highlighted by their deep red tones. <strong>African countries</strong> show a range of populations, 
+              with some countries in the central and northern parts of the continent having notably higher populations. <strong>North 
+              America</strong>, with countries such as the <strong>United States</strong> and <strong>Canada</strong>, displays a 
+              moderate population. <strong>South America</strong> has a varied population as well, with countries like <strong>Brazil
+              </strong> showing a higher concentration. <strong>Europe's population distribution</strong> is diverse, with certain 
+              western and central European countries showing a denser population compared to the eastern and northern regions. 
+              <strong>Australia and Oceania</strong> have lighter shades, indicating lower populations, particularly in the central 
+              and western parts of Australia. Overall, the map underscores the disparities in population distribution across continents 
+              and countries, 
+              offering insights into global demographic trends in 2022.
+          </p>
+
+          <div class="viz-section">
+            <p class="bubbleplot-paragraph">
+              The <strong>scatter plot</strong> visually represents the relationship between a country's <strong>area</strong> (in km²) 
+              and its <strong>population density</strong> (population per km²) in <strong>2022</strong>. The color coding for continents 
+              allows for a clear differentiation between countries from 
+              different parts of the world. <strong>Singapore</strong>, with a small land area but an extremely high population density, is a notable 
+              outlier on the top left. Countries such as <strong>Bangladesh</strong> and <strong>Palestine</strong> also show relatively high population densities, but 
+              they occupy larger areas compared to Singapore. Large countries like <strong>India</strong> and <strong>China</strong>, even with their vast populations, 
+              have a moderate population density when considering their expansive territories. <strong>Australia</strong> stands out as a unique case on
+              the bottom right, signifying a large landmass with a relatively low population density. The size of the circles indicates 
+              the <strong>total population</strong> of each country in 2022. Larger circles, such as those for China and India, indicate populations
+              exceeding <strong>1 billion</strong>. Moreover, European countries tend to cluster in the middle of the plot, showing moderate land areas
+              and population densities. African and South American countries are spread across different quadrants, showcasing the
+              varied densities and land areas within these continents. Overall, the scatter plot covers the vast differences between
+              countries in terms of landmass and how densely populated they are. It reveals how certain small countries can have
+              extremely high densities, while some larger countries maintain a balanced density due to their expansive areas.
+            </p>
+            <div id="bubbleplot"></div>
+          </div>
+
+          <div class="viz-section">
+            <p class="histogram-paragraph">
+              The <strong>histogram</strong> here visualizes the distribution of <strong>population growth rates</strong> across various countries. Most countries cluster
+              around a growth rate slightly above 1.005, with the highest frequency in this range. This suggests a modest positive
+              growth rate for the majority of the countries analyzed. Fewer countries exhibit extremely low or extremely high growth
+              rates, as indicated by the lower bars on the extreme left and right of the histogram. There's a noticeable decline in
+              the number of countries as the growth rate increases beyond approximately 1.015, indicating that very high growth rates
+              are less common. Similarly, there are fewer countries with growth rates below 0.995, suggesting that significant
+              population decline is also less prevalent. The range of growth rates is relatively tight, between approximately
+              0.975 and 1.045, suggesting that extreme population changes (either rapid growth or decline) are outliers. The shape
+              of the histogram, with a peak in the middle, indicates a roughly normal distribution of population growth rates,
+              but with a slight rightward skew. Lastly, the histogram provides a snapshot of global population growth patterns,
+              highlighting that while most countries experience a modest increase in population, there are still a few with
+              declining or rapidly increasing populations.
+            </p>
+            <div id="histogram"></div>
+          </div>
+
+          <div class="viz-section">
+          <p class="slopechart-paragraph">
+            The chart illustrates a side-by-side comparison of the populations of the top 10 ranked countries in both 1970 and 2022.
+            The main purpose is to see the difference between the 1970 and 2022. China and India stand out with the most significant
+            populations in both years, showing substantial growth from 1970 to 2022. Their population trajectories are represented
+            by steeply inclined lines. The United States, while being among the top in population, shows a more moderate increase 
+            compared to India and China. Countries like Brazil, Indonesia, Pakistan, and Nigeria display noticeable growth over the 
+            52-year span, with their population figures moving upwards but not as steeply as China or India. Bangladesh, Mexico, and 
+            Russia demonstrate moderate growth, with their 2022 populations being closer to their 1970 figures when compared to other 
+            countries on the list. The overall trend indicates population growth for all the top 10 countries from 1970 to 2022, with 
+            varying rates of increase. While the growth trajectories for most countries are upwards, the incline's steepness varies, 
+            giving a clear visual representation of which countries experienced rapid population surges.
+          </p>
+          <div id="slopechart"></div>
+        </div>
+
+          <div class="viz-section">
+          <p class="stackedbarchart-paragraph">
+            The stacked bar chart presents a comprehensive view of the population distribution across different continents from the
+            year 1970 to 2022. Asia consistently has the largest population across all years as shown, and its population continues
+            to grow steadily over the decades. Africa's population also shows a noticeable increase, particularly in the more recent
+            years, emphasizing its rapid population growth. Europe and North America have more stable populations over the years.
+            While there is some growth, it's not as pronounced as in Asia or Africa. South America's population has been growing at a 
+            steady rate, with its overall share in the global population remaining relatively consistent. Oceania has the smallest 
+            population among the continents, and its growth, while present, is subtle when compared to the larger continents. Looking 
+            at the overall trend, the global population has seen a substantial rise from 1970 to 2022. Most of this growth is 
+            contributed by Asia and Africa. The layered representation of each continent in the bars allows for a clear comparison of 
+            the population distribution and how the share of each continent has changed (or remained consistent) over time. By 2022, 
+            the combined global population is approaching the 8 billion mark, with Asia and Africa making up a significant portion of 
+            this number.
+          </p>
+          <div id="stackedbarchart"></div>
+        </div>
+      </div>
+  </body>  
+  
+  </html>
